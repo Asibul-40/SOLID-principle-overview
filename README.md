@@ -217,7 +217,7 @@ Sometimes people get confused about this principle. But following this principle
 
 ![Dependency-Inverstion](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/8123015f-8e26-4299-b900-b2769f17437b)
 
-*[image source](http://www.aspbucket.com/2018/11/dependency-inversion-principle.html)*
+> *[image source](http://www.aspbucket.com/2018/11/dependency-inversion-principle.html)*
 
 Lets describe this confusion with a proper example:
 Suppose we want to setup a database connection for our system and the system is heavily dependent on only one type of connection setup. Let's say, we want to setup a *MySQL* database connection for our system. What if we need to change all the connection setup regarding to this database connection !
