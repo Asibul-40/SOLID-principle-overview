@@ -118,7 +118,7 @@ Mobile connected!
 
 ## Open-Closed Principle (*OCP*)
 
-This principle states that *Classes should be open for extension and closed for modification*. basically, what does this principle actually mean?
+This principle states that *Classes should be open for extension and closed for modification*. basically, what does this principle actually mean? <br/>
 It means we should be able to add new functionality without touching the existing code for the class. Because whenever we modify the existing code, we are at the risk of having bugs. So we should avoid touching the tested and reliable (mostly) production code if possible.
 We can apply such technique by using abstract classes and interfaces. The previous example that I've explained for maintaining SRP principle, it also maintains OCP principle. If we need to add a different type of *Connector*, for example: **WiFiConnector**,  then we can just simply extend the parent **Connector** class and provide the own implementation for *connect()* method for the newly created connector. 
 
@@ -128,9 +128,8 @@ Let's discuss about another example about different types of shapes. We have imp
 
 
 ## Liskov Substitution Principle (*LSP*)
-Liskov substitution principle states that *parent classes should be easily substituted with their child classes*. It means that, given that class Y is a subclass of class X, we should be able to pass an object of class Y to any method that expects an object of class X and the method should not give any weird output in that case. 
-Let's discuss an example that follows this principle:
-Suppose, we have a *Guiter* class as a parent class which has some basic properties & functionalities that all types of guiter has. Now we three different types of guiter that have the same properties but with different implementation of their own. 
+Liskov substitution principle states that *parent classes should be easily substituted with their child classes*. It means that, given that class Y is a subclass of class X, we should be able to pass an object of class Y to any method that expects an object of class X and the method should not give any weird output in that case. <br/>
+Suppose, we have a *Guiter* class as a parent class which has some basic properties & functionalities that all types of guiter have. Now we three different types of guiter that have the same properties but with different implementation of their own. 
 
 ![Untitled Diagram (11)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/f93536e4-dabe-49a0-a938-b395f90ca436)
 
@@ -138,8 +137,8 @@ Suppose, we have a *Guiter* class as a parent class which has some basic propert
 ```java
 class Guiter {
 	String type;
-	void sound() {
-		System.out.println("Normal gtuiter sound.");
+	void cableConnection() {
+		System.out.println("Normal cable connection for all guiter.");
 	}
 }
 class BassGuiter extends Guiter {
@@ -154,8 +153,8 @@ class AcousticGuiter extends Guiter {
 	AcousticGuiter(String type) {
 		this.type = type;
 	}
-	void sound() {
-		System.out.println(type + " has Smooth sound.");
+	void cableConnection() {
+		System.out.println(type + " has special cable connection.");
 	}
 }
 public  class LSP {
@@ -164,11 +163,13 @@ public  class LSP {
 		Guiter acoustic = new AcousticGuiter("Acoustic Guiter");
 
 		bassGuiter.sound();
-		acoustic.sound();
+		acoustic.cableConnection();
 	}
 }
 ```
-Though the *AcousticGuiter* has its own functional implementations but we can still access the properties of this class through the parent *Guiter* class object. 
+Our above example can violate LSP in one particular scenerio. Let's discuss about it: <br/>
+We all know about Ukulele, which is also a special type of guiter. Though we have defined all guiter will have a cable connection, but in ukulele, there is no cable connecting port to connect. By inheriting the Guiter class, Ukulele will inherit the cableConnection() method forcedfully, which is irrelevant for this class. Thus this situation violates the Liskov substitution principle. So, we can redesign our Guiter class like this:
+
 
 
 ## Interface Segregation Principle (*ISP*)
@@ -176,7 +177,7 @@ Segregation means to separate a particular thing, hence interface segregation is
 Let's see an example:
 ```java
 public interface ParkingArea {
-	void parkCar();	// Decrease empty spot count by 1
+	void parkCar();		// Decrease empty spot count by 1
 	void getCapacity();	// Returns car capacity to park
 	double calculateCost(Car car); // Calculates cost for a CAR object 
 }
