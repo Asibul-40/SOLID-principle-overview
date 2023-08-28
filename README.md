@@ -122,9 +122,10 @@ This principle states that *Classes should be open for extension and closed for 
 It means we should be able to add new functionality without touching the existing code for the class. Because whenever we modify the existing code, we are at the risk of having bugs. So we should avoid touching the tested and reliable (mostly) production code if possible.
 We can apply such technique by using abstract classes and interfaces. The previous example that I've explained for maintaining SRP principle, it also maintains OCP principle. If we need to add a different type of *Connector*, for example: **WiFiConnector**,  then we can just simply extend the parent **Connector** class and provide the own implementation for *connect()* method for the newly created connector. 
 
-![drawing](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/77a307d1-5e4e-4220-8667-aee8b44e8684)
+![Untitled Diagram (22)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/3b640eab-8813-4a18-b0b2-dbb48c4cb43f)
 
-Let's discuss about another example about different types of shapes. We have implementations for shapes like: *Line*, *Ractangle*, *Text* classes. If we need another new *Circle* type shape, we just have to implement the *Shape* interface and provide all implementations for circular shape. Hence, we do not need to modify our existing classes for adding this new feature.
+
+Let's discuss about another example about different types of shapes. We have implementations for shapes like: *Line*, *Ractangle*, *Circle* classes. If we need another new *Random* type shape, we just have to implement the *Shape* interface and provide all implementations for this random shape. By following the OCP principle, we do not need to modify our existing classes.
 
 
 ## Liskov Substitution Principle (*LSP*)
@@ -168,8 +169,13 @@ public  class LSP {
 }
 ```
 Our above example can violate LSP in one particular scenerio. Let's discuss about it: <br/>
+
+![Untitled Diagram (19)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/680cdf71-c028-4911-9d30-b93fbd8af143)
+
+
 We all know about Ukulele, which is also a special type of guiter. Though we have defined all guiter will have a cable connection, but in ukulele, there is no cable connecting port to connect. By inheriting the Guiter class, Ukulele will inherit the cableConnection() method forcedfully, which is irrelevant for this class. Thus this situation violates the Liskov substitution principle. So, we can redesign our Guiter class like this:
 
+![Untitled Diagram (21)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/8919e355-e93a-4e1d-9193-dfe87a2faa72)
 
 
 ## Interface Segregation Principle (*ISP*)
@@ -221,6 +227,6 @@ Sometimes people get confused about this principle. But following this principle
 > *[image source](http://www.aspbucket.com/2018/11/dependency-inversion-principle.html)*
 
 Lets describe this confusion with a proper example:
-Suppose we want to setup a database connection for our system and the system is heavily dependent on only one type of connection setup. Let's say, we want to setup a *MySQL* database connection for our system. What if we need to change all the connection setup regarding to this database connection !
+Suppose we want to setup a database connection for our system and the system is heavily dependent on only one type of connection setup. Let's say, we have a setup for *MySQL* database connection for our system. What if we need to change all the connection setup regarding to this database connection! <br/>
 As a solution for this type of scenery, we can use an abstract layer or interface where we can define all types of database connections and can use it based on our needs. Thus adding an abstract layer can save our system from disaster. 
 
