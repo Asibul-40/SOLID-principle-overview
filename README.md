@@ -227,7 +227,7 @@ interface FreeParkingArea extends ParkingArea{
 	void getCapacity();
 }
 ```
-As we have separated our parking area, now any type of paid area class can implement the *PainparkingArea* interface and any free parking type class can implement the *FreeParkingArea* interface.
+As we have separated our parking area, now any type of paid area class can implement the *PaidParkingArea* interface and any free parking type class can implement the *FreeParkingArea* interface.
 
 
 ## Dependency Inversion Principle (*DIP*)
