@@ -188,6 +188,10 @@ We all know about Ukulele, which is also a special type of guiter. Though we hav
 ## Interface Segregation Principle (*ISP*)
 Segregation means to separate a particular thing, hence interface segregation is about separating the interfaces. This principle simply states that an interface should not be forced to have such properties that are irrelevant to it.
 Let's see an example:
+
+![Untitled Diagram (41)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/4caccda9-4723-46c2-a8b6-1e1e80fbad84)
+
+
 ```java
 public interface ParkingArea {
 	void parkCar();		// Decrease empty spot count by 1
