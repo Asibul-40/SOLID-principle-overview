@@ -35,3 +35,61 @@ Let's discuss about another example about different types of shapes. We have imp
 
 
 We know that every shapre has its own area to measure. So the *area* is a common property for every shape. If we need to add this property to our concrete ```Shape``` interface, then it will be strictly violate our open-close principle, as we are modifing our existing base code.  
+
+
+## Interface Segregation Principle (*ISP*)
+Segregation means to separate a particular thing, hence interface segregation is about separating the interfaces. This principle simply states that **Clients should not be forced to depend upon interfaces that they do not use**.
+Let's see what this principle mean through an example:
+
+![Untitled Diagram (41)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/4caccda9-4723-46c2-a8b6-1e1e80fbad84)
+
+
+```java
+public interface ParkingArea {
+	void parkCar();		// Decrease empty spot count by 1
+	void getCapacity();	// Returns car capacity to park
+	double calculateCost(Car car); // Calculates cost for a CAR object 
+}
+```
+If we have another type of *FreeParkingArea* which implements the *ParkingArea* interface, 
+```java
+class FreeParkingArea implements ParkingArea{
+	void parkCar();	// Decrease empty spot count by 1
+	void getCapacity();	// Returns car capacity to park
+	double calculateCost(Car car); return 0;	 
+}
+```
+Here we can see from the name that *FreeParkingArea* class is totally free for any types of vehicles to park. But it is forced to implement the *calculateCost()* method, which is irrelevant for this type of parking. So we can separate this interface and redesign our code as follows:
+
+![Untitled Diagram (12)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/d5a91f6e-a768-4495-a32b-32d46029ee09)
+
+
+```java
+interface ParkingArea{
+	void parkCar();
+	void getCapacity();
+}
+interface PaidParkingArea extends ParkingArea{
+	void parkCar();
+	void getCapacity();
+	double calculateCost(Car car);
+}
+interface FreeParkingArea extends ParkingArea{
+	void parkCar();
+	void getCapacity();
+}
+```
+As we have separated our parking area, now any type of paid area class can implement the *PaidParkingArea* interface and any free parking type class can implement the *FreeParkingArea* interface.
+
+
+## Dependency Inversion Principle (*DIP*)
+Sometimes people get confused about this principle. But following this principle is pretty much smart choice. However, the statement for this principle is: **Higher level module should not depend on lower level module, but they should depend on abstractions.**
+
+![Dependency-Inverstion](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/8123015f-8e26-4299-b900-b2769f17437b)
+
+> *[image source](http://www.aspbucket.com/2018/11/dependency-inversion-principle.html)*
+
+Lets describe this confusion with a proper example:
+Suppose we want to setup a database connection for our system and the system is heavily dependent on only one type of connection setup. Let's say, we have a setup for *MySQL* database connection for our system. What if we need to change all the connection setup regarding to this database connection! <br/>
+As a solution for this type of scenery, we can use an abstract layer or interface where we can define all types of database connections and can use it based on our needs. Thus adding an abstract layer can save our system from disaster. 
+
