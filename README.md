@@ -125,7 +125,15 @@ We can apply such technique by using abstract classes and interfaces. The previo
 ![Untitled Diagram (22)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/3b640eab-8813-4a18-b0b2-dbb48c4cb43f)
 
 
-Let's discuss about another example about different types of shapes. We have implementations for shapes like: *Line*, *Ractangle*, *Circle* classes. If we need another new *Random* type shape, we just have to implement the *Shape* interface and provide all implementations for this random shape. By following the OCP principle, we do not need to modify our existing classes.
+Let's discuss about another example about different types of shapes. We have implementations for shapes like: *Line*, *Ractangle*, *Circle* classes. If we need another new *Random* type shape, we just have to implement the *Shape* interface and provide all implementations for this random shape. By following the OCP principle, we do not need to modify our existing classes. <br/>
+
+
+### OCP violation:
+
+![Untitled Diagram (40)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/1878bcf3-dcd3-4586-9c64-dffb884b6dae)
+
+
+We know that every shapre has its own area to measure. So the *area* is a common property for every shape. If we need to add this property to our concrete ```Shape``` interface, then it will be strictly violate our open-close principle, as we are modifing our existing base code.  
 
 
 ## Liskov Substitution Principle (*LSP*)
