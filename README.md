@@ -127,7 +127,6 @@ We can apply such technique by using abstract classes and interfaces. The previo
 
 Let's discuss about another example about different types of shapes. We have implementations for shapes like: *Line*, *Ractangle*, *Circle* classes. If we need another new *Random* type shape, we just have to implement the *Shape* interface and provide all implementations for this random shape. By following the OCP principle, we do not need to modify our existing classes. <br/>
 
-
 ### OCP violation:
 
 ![Untitled Diagram (40)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/1878bcf3-dcd3-4586-9c64-dffb884b6dae)
