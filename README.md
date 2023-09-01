@@ -186,8 +186,8 @@ We all know about Ukulele, which is also a special type of guiter. Though we hav
 
 
 ## Interface Segregation Principle (*ISP*)
-Segregation means to separate a particular thing, hence interface segregation is about separating the interfaces. This principle simply states that **Clients should not be forced to depend upon interfaces that they do not use**
-Let's see an example:
+Segregation means to separate a particular thing, hence interface segregation is about separating the interfaces. This principle simply states that **Clients should not be forced to depend upon interfaces that they do not use**.
+Let's see what this principle mean through an example:
 
 ![Untitled Diagram (41)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/4caccda9-4723-46c2-a8b6-1e1e80fbad84)
 
