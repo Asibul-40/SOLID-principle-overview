@@ -20,7 +20,7 @@ The term SOLID holds for 5 different design principles:
 
 Lets discuss about these one by one:
 ## Single Responsibility Principle (*SRP*)
-This principle states that one class should have only one reason to change. It means we should consider a class should have only one responsibility. To state this principle more precisely:
+This principle states that **one class should have only one reason to change.** It means we should consider a class should have only one responsibility. To state this principle more precisely:
 - **Testing capabilities:** If a class has only one type of activities, then it is much more easier for any developer to perform some unit testing regarding to fix some that particular type of bugs. Like: to fix some database connection or user authentication related issues, we only need to focus on *DatabaseConnector* or *UserAuthenticationManager* classes.
 - **Loose Coupling:** By separating the functional components of each class, we can maintain the loose coupling between the classes.
 - **Structural Design:** By following the SRP principle, the overall structure of a class remains small and much readable.
@@ -118,7 +118,7 @@ Mobile connected!
 
 ## Open-Closed Principle (*OCP*)
 
-This principle states that *Classes should be open for extension and closed for modification*. basically, what does this principle actually mean? <br/>
+This principle states that **Classes should be open for extension and closed for modification**. basically, what does this principle actually mean? <br/>
 It means we should be able to add new functionality without touching the existing code for the class. Because whenever we modify the existing code, we are at the risk of having bugs. So we should avoid touching the tested and reliable (mostly) production code if possible.
 We can apply such technique by using abstract classes and interfaces. The previous example that I've explained for maintaining SRP principle, it also maintains OCP principle. If we need to add a different type of *Connector*, for example: **WiFiConnector**,  then we can just simply extend the parent **Connector** class and provide the own implementation for *connect()* method for the newly created connector. 
 
@@ -136,7 +136,7 @@ We know that every shapre has its own area to measure. So the *area* is a common
 
 
 ## Liskov Substitution Principle (*LSP*)
-Liskov substitution principle states that *parent classes should be easily substituted with their child classes*. It means that, given that class Y is a subclass of class X, we should be able to pass an object of class Y to any method that expects an object of class X and the method should not give any weird output in that case. <br/>
+Liskov substitution principle states that **parent classes should be easily substituted with their child classes**. It means that, given that class Y is a subclass of class X, we should be able to pass an object of class Y to any method that expects an object of class X and the method should not give any weird output in that case. <br/>
 Suppose, we have a *Guiter* class as a parent class which has some basic properties & functionalities that all types of guiter have. Now we three different types of guiter that have the same properties but with different implementation of their own. 
 
 ![Untitled Diagram (11)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/f93536e4-dabe-49a0-a938-b395f90ca436)
@@ -186,7 +186,7 @@ We all know about Ukulele, which is also a special type of guiter. Though we hav
 
 
 ## Interface Segregation Principle (*ISP*)
-Segregation means to separate a particular thing, hence interface segregation is about separating the interfaces. This principle simply states that an interface should not be forced to have such properties that are irrelevant to it.
+Segregation means to separate a particular thing, hence interface segregation is about separating the interfaces. This principle simply states that **an interface should not be forced to have such properties that are irrelevant to it.**
 Let's see an example:
 
 ![Untitled Diagram (41)](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/4caccda9-4723-46c2-a8b6-1e1e80fbad84)
@@ -231,7 +231,7 @@ As we have separated our parking area, now any type of paid area class can imple
 
 
 ## Dependency Inversion Principle (*DIP*)
-Sometimes people get confused about this principle. But following this principle is pretty much smart choice. However, the statement for this principle is: *Higher level module should not depend on lower level module, but they should depend on abstractions.*
+Sometimes people get confused about this principle. But following this principle is pretty much smart choice. However, the statement for this principle is: **Higher level module should not depend on lower level module, but they should depend on abstractions.**
 
 ![Dependency-Inverstion](https://github.com/Asibul-40/SOLID-principle-overview/assets/77221075/8123015f-8e26-4299-b900-b2769f17437b)
 
